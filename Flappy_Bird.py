@@ -1,11 +1,12 @@
 # Importing the libraries
-import pygame
-import sys
-import time
-import random
+import pygame, random, sys, time, numpy as np
 
+# Initialize constants / assets first 
+
+# preload all images onces so they aren't re-read every reset()
 # Initializing the pygame
 pygame.init()
+
 
 # Frames per second
 clock = pygame.time.Clock()

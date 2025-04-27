@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc57668b-38b8-4d6c-8cc7-f9413b48732e" name="Changes" comment="" />
+    <list default="true" id="dc57668b-38b8-4d6c-8cc7-f9413b48732e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/experience_replay.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flappyAgent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/agent.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -34,6 +42,7 @@
     "Python.dqn.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "test",
     "last_opened_file_path": "/home/lyto/PycharmProjects/FlappyBirdRLAgent",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -46,9 +55,14 @@
 }]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings module-name="FlappyBirdRLAgent" is-module-sdk="true">
-        <option name="myUseModuleSdk" value="true" />
-        <option name="myModuleName" value="FlappyBirdRLAgent" />
+      <console-settings sdk-home="$USER_HOME$/miniconda3/envs/FlappyBirdRLAgent/bin/python">
+        <option name="sdk">
+          <Sdk />
+        </option>
+        <option name="mySdkHome" value="$USER_HOME$/miniconda3/envs/FlappyBirdRLAgent/bin/python" />
+        <option name="mySdk">
+          <Sdk />
+        </option>
       </console-settings>
     </option>
   </component>
@@ -70,7 +84,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.13 (FlappyBirdRLAgent)" />
+      <option name="SDK_NAME" value="FlappyBirdRLAgent" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -94,7 +108,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.13 (FlappyBirdRLAgent)" />
+      <option name="SDK_NAME" value="FlappyBirdRLAgent" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -142,7 +156,8 @@
       <workItem from="1745626602379" duration="3045000" />
       <workItem from="1745645453337" duration="883000" />
       <workItem from="1745689181358" duration="6525000" />
-      <workItem from="1745696520873" duration="753000" />
+      <workItem from="1745696520873" duration="1379000" />
+      <workItem from="1745697914637" duration="8503000" />
     </task>
     <servers />
   </component>
@@ -154,7 +169,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/agent.py</url>
-          <line>241</line>
+          <line>267</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

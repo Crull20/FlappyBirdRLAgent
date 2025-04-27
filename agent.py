@@ -32,6 +32,8 @@ matplotlib.use('Agg')
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 device = 'cpu' # force cpu, sometimes GPU not always faster than CPU due to overhead of moving data to GPU
 
+# lots of this is just set up for the agent, the env and wtv
+
 # Deep Q-Learning Agent
 class Agent():
 
@@ -45,28 +47,47 @@ class Agent():
 
         # Hyperparameters (adjustable)
         self.env_id             = hyperparameters['env_id']
-        self.learning_rate_a    = hyperparameters['learning_rate_a']        # learning rate (alpha)
-        self.discount_factor_g  = hyperparameters['discount_factor_g']      # discount rate (gamma)
-        self.network_sync_rate  = hyperparameters['network_sync_rate']      # number of steps the agent takes before syncing the policy and target network
-        self.replay_memory_size = hyperparameters['replay_memory_size']     # size of replay memory
-        self.mini_batch_size    = hyperparameters['mini_batch_size']        # size of the training data set sampled from the replay memory
-        self.epsilon_init       = hyperparameters['epsilon_init']           # 1 = 100% random actions
-        self.epsilon_decay      = hyperparameters['epsilon_decay']          # epsilon decay rate
-        self.epsilon_min        = hyperparameters['epsilon_min']            # minimum epsilon value
-        self.stop_on_reward     = hyperparameters['stop_on_reward']         # stop training after reaching this number of rewards
+        self.learning_rate_a    = hyperparameters['learning_rate_a']
+        self.discount_factor_g  = hyperparameters['discount_factor_g']
+        self.network_sync_rate  = hyperparameters['network_sync_rate']
+        self.replay_memory_size = hyperparameters['replay_memory_size']
+        self.mini_batch_size    = hyperparameters['mini_batch_size']
+
+        # Epsilon parameters - directly from hyperparameters
+        self.epsilon_init  = hyperparameters['epsilon_init']
+        self.epsilon_min   = hyperparameters['epsilon_min']
+        self.epsilon_decay = hyperparameters['epsilon_decay']
+        self.epsilon_decayf = 0.997   # You can hardcode this if you want faster decay after success
+        self.epsilon_decays = 1.1   # Hardcoded slow decay after bad performance
+
+        self.rewardtreshH = 10000    # You might want to hardcode this if you don't have reward thresholds in YAML
+        self.rewardtreshL = 1000     # Hardcoded low reward threshold
+
+        self.stop_on_reward     = hyperparameters['stop_on_reward']
         self.fc1_nodes          = hyperparameters['fc1_nodes']
-        self.env_make_params    = hyperparameters.get('env_make_params',{}) # Get optional environment-specific parameters, default to empty dict
-        self.enable_double_dqn  = hyperparameters['enable_double_dqn']      # double dqn on/off flag
-        self.enable_dueling_dqn = hyperparameters['enable_dueling_dqn']     # dueling dqn on/off flag
+        self.env_make_params    = hyperparameters.get('env_make_params', {})
+        self.enable_double_dqn  = hyperparameters['enable_double_dqn']
+        self.enable_dueling_dqn = hyperparameters['enable_dueling_dqn']
 
-        # Neural Network
-        self.loss_fn = nn.MSELoss()          # NN Loss function. MSE=Mean Squared Error can be swapped to something else.
-        self.optimizer = None                # NN Optimizer. Initialize later.
-
-        # Path to Run info
-        self.LOG_FILE   = os.path.join(RUNS_DIR, f'{self.hyperparameter_set}.log')
+        self.LOG_FILE = os.path.join(RUNS_DIR, f'{self.hyperparameter_set}.log')
         self.MODEL_FILE = os.path.join(RUNS_DIR, f'{self.hyperparameter_set}.pt')
         self.GRAPH_FILE = os.path.join(RUNS_DIR, f'{self.hyperparameter_set}.png')
+        self.loss_fn = nn.MSELoss()
+
+    def adaptive_epsilon(self, epsilon, rewards_per_episode):
+        if len(rewards_per_episode) >= 300:
+            avg_reward = np.mean(rewards_per_episode[-100:])
+
+            if avg_reward > self.rewardtreshH:
+                epsilon = max(epsilon * self.epsilon_decayf, self.epsilon_min)
+            elif avg_reward < self.rewardtreshL:
+                epsilon = min(epsilon / self.epsilon_decays, 1.0)
+            else:
+                epsilon = max(epsilon * self.epsilon_decay, self.epsilon_min)
+        else:
+            epsilon = max(epsilon * self.epsilon_decay, self.epsilon_min)
+
+        return epsilon
 
     def run(self, is_training=True, render=False):
         if is_training:
@@ -81,6 +102,7 @@ class Agent():
         # Create instance of the environment.
         # Use "**self.env_make_params" to pass in environment-specific parameters from hyperparameters.yml.
         env = gym.make(self.env_id, render_mode='human' if render else None, **self.env_make_params)
+        #actual flappy bird instance
 
         # Number of possible actions
         num_actions = env.action_space.n
@@ -96,6 +118,10 @@ class Agent():
 
         if is_training:
             # Initialize epsilon
+            if os.path.exists(self.MODEL_FILE):
+                print(f"Loading existing model weights from {self.MODEL_FILE}...")
+                policy_dqn.load_state_dict(torch.load(self.MODEL_FILE))
+
             epsilon = self.epsilon_init
 
             # Initialize replay memory
@@ -196,7 +222,7 @@ class Agent():
                     self.optimize(mini_batch, policy_dqn, target_dqn)
 
                     # Decay epsilon
-                    epsilon = max(epsilon * self.epsilon_decay, self.epsilon_min)
+                    epsilon = self.adaptive_epsilon(epsilon, rewards_per_episode)
                     epsilon_history.append(epsilon)
 
                     # Copy policy network to target network after a certain number of steps

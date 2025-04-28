@@ -31,6 +31,22 @@ adaptbird:
     use_lidar: False
   double_dqn: True
   dueling_dqn: True
+adaptbird2:
+  env_id: FlappyBird-v0
+  memory_size: 100000
+  batch_size: 32
+  epsilon_initial: .9
+  epsilon_decay: .995
+  epsilon_min: 0.01
+  network_sync_rate: 10
+  learning_rate: 0.0001
+  discount_factor: 0.99
+  stop_training_at_reward: 100000
+  fc1_units: 512
+  env_make_params:
+    use_lidar: False
+  double_dqn: True
+  dueling_dqn: True
 flappybird2:
   env_id: FlappyBird-v0
   replay_memory_size: 100000

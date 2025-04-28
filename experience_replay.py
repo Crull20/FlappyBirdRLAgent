@@ -9,7 +9,7 @@ class ReplayMemory():
         if seed is not None:
             random.seed(seed)
 
-    def append(self, transition):
+    def add(self, transition):
         self.memory.append(transition)
 
     def sample(self, sample_size):

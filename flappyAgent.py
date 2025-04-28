@@ -34,11 +34,11 @@ class FlappyAgent:
         self.epsilon_initial = hyperparameters['epsilon_initial']
         self.epsilon_decay = hyperparameters['epsilon_decay']
         self.epsilon_min = hyperparameters['epsilon_min']
-        self.epsilon_decayf = 0.997  # You can hardcode this if you want faster decay after success
-        self.epsilon_decays = 1.1  # Hardcoded slow decay after bad performance
+        self.epsilon_decayf = 0.997  #fast decay for when good performance
+        self.epsilon_decays = 1.1  #slow decay after bad performance
 
-        self.rewardtreshH = 10000  #high and low reward tresholds
-        self.rewardtreshL = 1000
+        self.rewardtreshH = 100  #high and low reward tresholds
+        self.rewardtreshL = 3
 
         self.stop_training_at_reward = hyperparameters['stop_training_at_reward']
         self.fc1_units = hyperparameters['fc1_units']
@@ -54,8 +54,13 @@ class FlappyAgent:
         self.PLOT = os.path.join(RUNS, f'{self.hyperparameters_set}.png')
 
     def adaptive_epsilon(self, epsilon, rewards_per_episode):
-        if len(rewards_per_episode) >= 300:
+        if len(rewards_per_episode) >= 50:  # for first 300 runs, it will experiment more and try to explore possible strategies
             avg_reward = np.mean(rewards_per_episode[-100:])
+
+            # Adjust thresholds based on maximum reward, but with sensible minimums
+            max_reward = max(rewards_per_episode)
+            self.rewardtreshH = max(100, max_reward * 0.5)  # At least 100, or 50% of max
+            self.rewardtreshL = max(10, max_reward * 0.1)  # At least 10, or 10% of max
 
             if avg_reward > self.rewardtreshH:
                 epsilon = max(epsilon * self.epsilon_decayf, self.epsilon_min)

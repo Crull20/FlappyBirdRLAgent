@@ -2,7 +2,7 @@ import flappy_bird_gymnasium
 import gymnasium
 from dqn import DQN
 import torch
-from experience_replay import ReplayMemory
+from memory import Memory
 import yaml
 import random
 import os

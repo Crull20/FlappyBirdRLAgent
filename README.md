@@ -23,4 +23,15 @@ or
 
 Each command will train a bird according to the given hyperparameters in file `hyperparameters.yml`
 
+## Running the Agent
+After the agent has trained (recommended time = `1 hour`), run the following command corresponding
+to the bird you trained (`testbird` or `adaptbird`)
+
+    python flappyAgent.py testbird
+
+or
+
+    python flappyAgent.py adaptbird
+
+Now watch as the agent plays Flappy Bird
 

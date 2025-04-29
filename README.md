@@ -12,3 +12,7 @@ To install `flappy-bird-gymnasium`, run the following command:
 
     pip install flappy-bird-gymnasium
 
+## Training the Agent
+To train an agent, run the following command:
+
+    python flappyAgent.py 

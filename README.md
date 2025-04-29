@@ -2,7 +2,9 @@
 
 ## Before You Start
 Python & Pytorch are required. Make sure both are installed.
+
 https://www.python.org/downloads/
+
 https://pytorch.org/
 
 ## Environment Installation

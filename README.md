@@ -22,7 +22,7 @@ To install `flappy-bird-gymnasium`, run the following command:
 
 After the environment is installed, you may test the environment with the command:
 
-    flappy-bird-gymnasium
+    flappy_bird_gymnasium
 
 After testing the environment runs, ensure that your preferred IDE is using the created environment as a python interpreter.
 

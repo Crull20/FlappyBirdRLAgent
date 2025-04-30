@@ -1,6 +1,6 @@
 import flappy_bird_gymnasium
 import gymnasium
-from dqn import DQN
+from DQN import DQN
 import torch
 from memory import Memory
 import yaml

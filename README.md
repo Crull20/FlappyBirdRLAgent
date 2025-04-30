@@ -11,6 +11,8 @@ Additionally, tensorflow & pyyaml are required.
 
     pip install tensorflow
 
+&
+
     pip install pyyaml
 
 ## Environment Installation

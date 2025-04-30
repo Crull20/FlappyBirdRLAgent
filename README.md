@@ -7,10 +7,22 @@ https://www.python.org/downloads/
 
 https://pytorch.org/
 
+Additionally, tensorflow & pyyaml are required.
+
+    pip install tensorflow
+
+    pip install pyyaml
+
 ## Environment Installation
 To install `flappy-bird-gymnasium`, run the following command:
 
     pip install flappy-bird-gymnasium
+
+After the environment is installed, you may test the environment with the command:
+
+    flappy-bird-gymnasium
+
+After testing the environment runs, ensure that your preferred IDE is using the created environment as a python interpreter.
 
 ## Training the Agent
 To train an agent, run one of the following commands:

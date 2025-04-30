@@ -47,8 +47,8 @@ class FlappyAgent:
         self.epsilon_decays = 1.1  # slow decay after bad performance
 
         # reward thresholds for exploration vs exploitation
-        self.rewardtreshH = 100  # high and low reward thresholds
-        self.rewardtreshL = 3  
+        self.rewardtreshH = 10000  #high and low reward thresholds
+        self.rewardtreshL = 1000
 
         self.stop_training_at_reward = hyperparameters['stop_training_at_reward']
         self.fc1_units = hyperparameters['fc1_units']                   # width of hidden layer

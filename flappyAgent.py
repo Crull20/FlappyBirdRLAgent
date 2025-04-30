@@ -128,7 +128,7 @@ class FlappyAgent:
 
         if is_training:
             # experience replay buffer
-            memory = ReplayMemory(self.memory_size)
+            memory = Memory(self.memory_size)
 
             epsilon = self.epsilon_initial
 

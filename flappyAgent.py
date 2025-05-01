@@ -77,7 +77,7 @@ class FlappyAgent:
             # average reward over last 100 episodes
             avg_reward = np.mean(rewards_per_episode[-100:])
 
-            # Adjust thresholds based on maximum reward, but with sensible minimums
+            # Adjust thresholds based on maximum reward
             max_reward = max(rewards_per_episode)
             self.rewardtreshH = max(100, max_reward * 0.5)  # At least 100, or 50% of max
             self.rewardtreshL = max(10, max_reward * 0.1)  # At least 10, or 10% of max

@@ -1,0 +1,82 @@
+04-27 22:21:47: Training started
+
+04-27 22:21:48: New best reward: -8.10 (+nan%) at episode 0, saving model
+
+04-27 22:21:48: New best reward: -6.90 (-14.81%) at episode 3, saving model
+
+04-27 22:21:48: New best reward: -6.30 (-8.70%) at episode 4, saving model
+
+04-27 22:21:48: New best reward: -5.70 (-9.52%) at episode 5, saving model
+
+04-27 22:21:48: New best reward: -4.50 (-21.05%) at episode 34, saving model
+
+04-27 22:21:48: New best reward: -3.90 (-13.33%) at episode 47, saving model
+
+04-27 22:21:48: New best reward: -0.30 (-92.31%) at episode 52, saving model
+
+04-27 22:21:48: New best reward: 6.10 (-2133.33%) at episode 59, saving model
+
+04-27 22:22:06: New best reward: 8.40 (+37.70%) at episode 1615, saving model
+
+04-27 22:22:06: New best reward: 12.90 (+53.57%) at episode 1616, saving model
+
+04-27 22:22:07: New best reward: 17.90 (+38.76%) at episode 1675, saving model
+
+04-27 22:22:33: New best reward: 18.30 (+2.23%) at episode 3303, saving model
+
+04-27 22:22:41: New best reward: 22.50 (+22.95%) at episode 3840, saving model
+
+04-27 22:22:55: New best reward: 22.60 (+0.44%) at episode 4719, saving model
+
+04-27 22:22:58: New best reward: 26.90 (+19.03%) at episode 4857, saving model
+
+04-27 22:22:58: New best reward: 27.00 (+0.37%) at episode 4874, saving model
+
+04-27 22:23:02: New best reward: 40.90 (+51.48%) at episode 5082, saving model
+
+04-27 22:26:24: New best reward: 46.20 (+12.96%) at episode 16210, saving model
+
+04-27 22:26:49: New best reward: 59.90 (+29.65%) at episode 17248, saving model
+
+04-27 22:27:11: New best reward: 84.10 (+40.40%) at episode 18104, saving model
+
+04-27 22:29:30: New best reward: 106.40 (+26.52%) at episode 22954, saving model
+
+04-27 22:30:21: New best reward: 120.40 (+13.16%) at episode 24636, saving model
+
+04-27 22:34:57: New best reward: 136.90 (+13.70%) at episode 31922, saving model
+
+04-27 22:35:38: New best reward: 148.40 (+8.40%) at episode 32888, saving model
+
+04-27 22:35:48: New best reward: 162.40 (+9.43%) at episode 33086, saving model
+
+04-27 22:37:00: New best reward: 204.50 (+25.92%) at episode 34769, saving model
+
+04-27 22:45:44: New best reward: 250.90 (+22.69%) at episode 45181, saving model
+
+04-27 22:53:00: New best reward: 417.30 (+66.32%) at episode 52510, saving model
+
+04-27 23:01:03: New best reward: 418.90 (+0.38%) at episode 57958, saving model
+
+04-27 23:03:01: New best reward: 474.90 (+13.37%) at episode 59110, saving model
+
+04-27 23:05:36: New best reward: 488.90 (+2.95%) at episode 60604, saving model
+
+04-27 23:06:27: New best reward: 615.00 (+25.79%) at episode 61072, saving model
+
+04-27 23:08:43: New best reward: 698.90 (+13.64%) at episode 62137, saving model
+
+04-27 23:13:54: New best reward: 726.90 (+4.01%) at episode 64176, saving model
+
+04-27 23:16:20: New best reward: 824.90 (+13.48%) at episode 65168, saving model
+
+04-27 23:19:19: New best reward: 922.90 (+11.88%) at episode 66218, saving model
+
+04-27 23:23:46: New best reward: 965.40 (+4.61%) at episode 67661, saving model
+
+04-27 23:26:06: New best reward: 1860.90 (+92.76%) at episode 68362, saving model
+
+04-27 23:27:24: New best reward: 1865.90 (+0.27%) at episode 68658, saving model
+
+04-27 23:31:02: New best reward: 2549.50 (+36.64%) at episode 69476, saving model
+
